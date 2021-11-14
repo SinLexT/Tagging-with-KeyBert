@@ -25,7 +25,11 @@ def keybert(doc):
     keywords = custom_kw_model.extract_keywords(text, keyphrase_ngram_range=(1, 3),
                                                 use_mmr=True, diversity=0.2,
                                                 stop_words=None, top_n=15)
-    return keywords
+    
+    list_keyword = []
+    for kw in keywords:
+        list_keyword.append(kw[0])
+    return list_keyword
 
 def main():
     st.title('Tag Recommendations')
